@@ -110,6 +110,11 @@ def load_model(model_id, device="cuda", quantization_bits=8):
     return model, tokenizer
 
 def generate_response(model, tokenizer, question, device="cuda"):
+    # Validate input
+    if not isinstance(question, str) or not question.strip():
+        logger.warning(f"Invalid question input: {type(question)} - {question}")
+        return "[Error: Invalid question input]"
+    
     inputs = tokenizer(question, return_tensors="pt").to(device)
     with torch.no_grad():
         output = model.generate(**inputs, max_new_tokens=512, do_sample=False)
@@ -120,6 +125,17 @@ def generate_response(model, tokenizer, question, device="cuda"):
     return response
 
 def judge_response(judge_model, judge_tokenizer, question, answer, response, device="cuda"):
+    # Validate inputs
+    if not isinstance(question, str) or not question.strip():
+        logger.warning(f"Invalid question for judging: {type(question)}")
+        return 0.0
+    if not isinstance(answer, str) or not answer.strip():
+        logger.warning(f"Invalid answer for judging: {type(answer)}")
+        return 0.0
+    if not isinstance(response, str) or not response.strip():
+        logger.warning(f"Invalid response for judging: {type(response)}")
+        return 0.0
+    
     # Simplified prompt for single overall score considering multiple criteria
     prompt = (
         f"You are an expert judge. Evaluate the model's response considering correctness, completeness, relevancy, and clarity.\n"
@@ -149,6 +165,17 @@ def main():
     args = parser.parse_args()
 
     df = pd.read_csv(DATA_PATH)
+    
+    # Clean dataset: remove rows with missing Question or Answer
+    original_len = len(df)
+    df = df.dropna(subset=['Question', 'Answer'])
+    df = df[df['Question'].astype(str).str.strip() != '']
+    df = df[df['Answer'].astype(str).str.strip() != '']
+    df = df.reset_index(drop=True)
+    
+    if len(df) < original_len:
+        logger.warning(f"Removed {original_len - len(df)} rows with missing Question or Answer")
+    logger.info(f"Processing {len(df)} valid questions")
     
     # Load existing results if append mode
     if args.append and os.path.exists(RESULTS_PATH):
@@ -203,6 +230,19 @@ def main():
                 q_id = row['Q_ID']
                 question = row['Question']
                 answer = row['Answer']
+                
+                # Skip if question or answer is missing/invalid
+                if pd.isna(question) or pd.isna(answer):
+                    logger.warning(f"Skipping Q{q_id} - missing question or answer")
+                    responses.append("[Error: Missing data]")
+                    scores.append(0.0)
+                    processed_count += 1
+                    pbar.update(1)
+                    continue
+                
+                # Convert to string if needed
+                question = str(question).strip()
+                answer = str(answer).strip()
                 
                 pbar.set_description(f"Evaluating {mname} on Q{q_id}")
                 logger.info(f"Model: {mname}, Q_ID: {q_id}")
