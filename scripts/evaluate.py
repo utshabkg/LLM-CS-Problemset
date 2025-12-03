@@ -47,7 +47,7 @@ JUDGE_MODELS = {
 
 # General resource optimization settings
 TORCH_DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
-BATCH_SIZE = 4  # Adjust based on VRAM, can be tuned
+BATCH_SIZE = 32  # Safe with your hardware - can go up to 32 if needed
 torch.set_float32_matmul_precision('high')
 
 def load_model(model_id, device="cuda", quantization_bits=8):
@@ -112,7 +112,7 @@ def load_model(model_id, device="cuda", quantization_bits=8):
 def generate_response(model, tokenizer, question, device="cuda"):
     inputs = tokenizer(question, return_tensors="pt").to(device)
     with torch.no_grad():
-        output = model.generate(**inputs, max_new_tokens=512)
+        output = model.generate(**inputs, max_new_tokens=512, do_sample=False)
     # Free up memory after generation
     gc.collect()
     torch.cuda.empty_cache()
@@ -196,6 +196,7 @@ def main():
         scores = []
         
         # Process in batches
+        processed_count = 0
         for start in range(0, len(df), BATCH_SIZE):
             batch = df.iloc[start:start+BATCH_SIZE]
             for idx, row in batch.iterrows():
@@ -214,8 +215,17 @@ def main():
                 overall_score = judge_response(judge_model, judge_tokenizer, question, answer, response, TORCH_DEVICE)
                 scores.append(overall_score)
                 
+                processed_count += 1
                 pbar.update(1)
-            
+                # Checkpoint every 100 queries
+                if processed_count % 100 == 0:
+                    # Save only completed rows for this model
+                    checkpoint_df = results_df.iloc[:processed_count].copy()
+                    checkpoint_df[response_col] = responses[:processed_count]
+                    checkpoint_df[score_col] = scores[:processed_count]
+                    checkpoint_path = RESULTS_PATH.replace('.csv', f'_checkpoint_{mname}_{processed_count}.csv')
+                    checkpoint_df.to_csv(checkpoint_path, index=False)
+                    logger.info(f"Checkpoint saved after {processed_count} queries for {mname} at {checkpoint_path}")
             # Free up memory after each batch
             gc.collect()
             torch.cuda.empty_cache()
