@@ -1,0 +1,41 @@
+Q_ID,Domain,Question,Answer,Difficulty,Source
+188,Networking,,,Hard,
+524,Algo & DS,,,,
+626,Algo & DS,,,,
+627,Algo & DS,,,,
+655,Algo & DS,,,,
+656,Algo & DS,,,,
+657,Algo & DS,,,,
+703,Algo & DS,,,,
+726,SWE,"You have been asked to help design the ""CPSC 211 Student Transcript System"", whose purpose
+is to display student transcripts. A transcript lists the courses a student took, sorted by session.
+For each session, the transcript lists all courses taken by the student; both UBC courses for term
+1 and term 2, and transfer courses (courses taken at another college or university, and whose
+credit can be used towards a UBC degree). Finally, each object listed on a transcript may render
+itself (i.e., may prepare to write itself out) if it is given a Renderer object. Each Renderer object
+knows how to print tables, lines, string, etc… in a specific output format. For the moment we are
+interested in HTML documents and Java GUI formats.
+Suppose we have already determined that we likely need the following classes and interfaces for
+this problem:
+ Transcript - a student transcript
+ Session – an academic session for the transcript ( i.e. 2007s, 2008w)
+ Term – a term of an academic session ( term1, term2)
+ Course – a university course that appears in a term of a session in the transcript
+ UBCCourse – a course taken at UBC
+ TransferCourse – a course taken outside UBC and transferred to UBC
+ Renderer – the interface of a renderer that can render a transcript
+ JavaGUIRenderer – a renderer for Java applications
+ HTMLRenderer – a renderer for Web applications
+ Renderable – an interface for any object that can be rendered by a renderer
+Draw a UML class diagram to describe the basic design for the Student Transcript System. Your
+diagram should include the given classes and interfaces and should show the relationships (with
+appropriate multiplicities) among them. Interfaces and classes must show the most important
+methods that are required for the functionality mentioned in the problem description. Make sure
+that your design satisfies the design principles we discussed in class.",,Hard,"https://www.cs.ubc.ca/~gabrielm/211/exams/MidtermPracticeExercises-09wTerm2.pdf
+https://www.cs.ubc.ca/~gabrielm/211/exams/MidtermPracticeExercises-Solutions-09wTerm2.pdf"
+885,SWE,"Each of the following questions (c)-(e) gives a pair of concepts. It can be a pair of techniques, or a pair of tools, or a pair of
+processes, etc. Given a pair, please explain why the first one could be better (e.g., more likely to succeed and reduce software
+engineering effort, or to improve software engineering outcomes) than the second. Your explanation may depend on the
+specific pair given. For full credit, please also briefly describe a situation to illustrate why the first is better than the second.
+Note that your answer should not only explain why the first may be good, but also why the second may not be good. For each
+question, please use no more than four sentences.",,,'

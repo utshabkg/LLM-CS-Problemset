@@ -19,8 +19,8 @@ slot is 410.26 μsec.",Easy,Book (Computer Networks by Andrew S Tanenbaum and Da
 is LHLHLHHLHLHLLHHLLHHL",Easy,Book (Computer Networks by Andrew S Tanenbaum and David J Wetherall)
 6,Networking,One important difference between a bridge and a router?,"Bridge is L2 switching, router is L3 routing with routing tables.",Easy,UMass CMPSCI453 Final 2002
 7,Networking,Do ATM cells carry source or destination addresses in the header?,No. They carry VPI/VCI only.,Easy,UMass CMPSCI453 Final 2002
-8,Networking,True or False: An input port on a router performs the physical layer function of line termination.,True,Easy,UCalgary CPSC441 Final 2021
-9,Networking,True or False: Every datalink layer protocol requires a MAC channel access protocol.,False,Easy,UCalgary CPSC441 Final 2021
+8,Networking,True or False: An input port on a router performs the physical layer function of line termination.,true,Easy,UCalgary CPSC441 Final 2021
+9,Networking,True or False: Every datalink layer protocol requires a MAC channel access protocol.,false,Easy,UCalgary CPSC441 Final 2021
 10,Networking,What is a distinctive feature of Asynchronous Transfer Mode ATM networks,ATM uses fixed size 53 byte packets called cells rather than variable length packets,Easy,University of Calgary Final F2018 solution Q2
 11,Networking,On classic Ethernet what is the maximum transmission unit MTU for an IP datagram,The Ethernet MTU for an IP datagram is 1500 bytes,Easy,University of Calgary Final F2018 solution Q2
 12,Networking,Does every data link layer protocol require a MAC channel access protocol,False point to point links do not need a multiple access control protocol,Easy,University of Calgary  Final F2021 solution Q3
@@ -48,7 +48,7 @@ data. What is the maximum sustainable data rate?","With a token every 5 μsec, 2
 48 data bytes or 384 bits. The net data rate is then 76.8 Mbps.",Easy,Book (Computer Networks by Andrew S Tanenbaum and David J Wetherall)
 25,Networking,In a Class B IPv4 address such as 136.159.5.20 how long is the network identifier portion,In Class B the network identifier is 16 bits long corresponding to the first two octets for this example 136.159,Easy,University of Calgary Final F2018 solution Q9
 26,Networking,In Classless Inter Domain Routing CIDR what is the length of the network identifier in an IPv4 address,The network identifier length is variable and is specified by the prefix length notation for example slash 20 or slash 24 so none of the fixed length options apply,Easy,University of Calgary Final F2018 solution Q10
-27,Networking,Is the statement correct that an input port on a router performs the physical layer function of line termination,True,Easy,University of Calgary Final F2021 solution Q1
+27,Networking,Is the statement correct that an input port on a router performs the physical layer function of line termination,true,Easy,University of Calgary Final F2021 solution Q1
 28,Networking,Does the Link State routing algorithm suffer from the count to infinity problem,False the count to infinity problem is a weakness of distance vector routing not Link State routing,Easy,University of Calgary  Final F2021 solution Q2
 29,Networking,Is IP fragmentation a new feature that is supported in IPv6 but not in IPv4,False IPv4 supports fragmentation while IPv6 removes it from routers,Easy,University of Calgary Final F2021 solution Q4
 30,Networking,Is it correct to say that BGP is the glue that holds Internet routing together,True BGP is the inter domain routing protocol that connects autonomous systems,Easy,University of Calgary Final F2021 solution Q5
@@ -144,7 +144,7 @@ out. Checking for viruses might work if a good antivirus program is used.
 Checking outgoing traffic, which might be encrypted, is nearly hopeless
 against a serious attempt to leak information",Easy,Book (Computer Networks by Andrew S Tanenbaum and David J Wetherall)
 54,Networking,ElGamal variant decryption blank: compute (K = H(______)) before decrypting (C_2). What goes in the blank?,(C_1^b \bmod p),Easy,Berkeley CS161 Spring 2025 Midterm Q7
-55,Networking,True or False: Cipher Block Chaining (CBC) mode encryption is secure under indistinguishability under chosen plaintext attack (IND CPA) even if the initialization vector (IV) is reused across multiple encryptions with the same key.,False,Easy,Berkeley CS161 Spring 2025 Midterm Q2
+55,Networking,True or False: Cipher Block Chaining (CBC) mode encryption is secure under indistinguishability under chosen plaintext attack (IND CPA) even if the initialization vector (IV) is reused across multiple encryptions with the same key.,false,Easy,Berkeley CS161 Spring 2025 Midterm Q2
 56,Networking,Why can the IP UDP and TCP checksums not protect against a malicious party that modifies packets in transit Give one to two concise sentences,Unkeyed checksums cannot stop intentional modification,Easy,Stanford CS144 Final Spring 2023 Ans
 57,Networking,How does a MAC or an AEAD cipher preserve integrity against intentional modification by an adversary Give one to two concise sentences,Secret key tag prevents forgeries,Easy,Stanford CS144 Final Spring 2023 Ans
 58,Networking,If an attacker host C must guess a 32 bit TCP sequence number chosen uniformly at random how many guesses are needed on average to get the correct value.,Approximately 2^31 guesses.,Easy,Final_2007_soln Q20 part a
@@ -259,7 +259,7 @@ probability of a successful transmission all the way is (1 − p)^2, which we wi
 114,Networking,"Consider the following plot of TCP window size as a function of time. Assuming TCP Reno is the protocol experiencing the behavior shown above, answer the following questions. (a) Identify the intervals of time when TCP slow start is operating.","1–6, 23–26.",Medium,CMU 15-441 HW3 (Solns)
 115,Networking,Suppose each response or request can be fit into one packet. Which of the following techniques is likely to reduce the likelihood of a congestion collapse? (Circle ALL that apply) Increase the size of the queue in each router from 4 packets to 8 packets. Suppose the timeout value is appropriately adjusted accordingly to the queue length.,Solution: nuanced discussion as in key.,Medium,CMU 15-441 HW3 (Solns)
 116,Networking,"D Pick the true choices about congestion collapse and backoff Otto Pilot creates a new network for the 150 PC computers he mounted within his car. Each computer sends indepenent UDP query response packets to the other computers in the car when it needs to know or do something. Requests are retried after a time out that is a fixed, small multiple of the typial response time. After running the OttoNet for a few days, Otto notices that network congestion occasionally causes a congestion collapse because too many packets are sent into the network, only to be dropped before reaching the eventual destination. These packets consume valuable resources. Suppose each response or request can be fit into one packet. Which of the following techniques is likely to reduce the likelihood of a congestion collapse Circle ALL that apply D. Use a TCP style flow control window per session at each receiver to prevent buffer overruns.",NO.,Medium,CMU 15-441 HW3 Solns
-117,Networking,TCP Cubic increases window based on elapsed real time rather than per ACK steps. Why adopt a real time increase rule Statement ? Evaluate as True or False .This reduces the throughput bias against long RTT connections compared to Reno.,True,Medium,MIT 6.829 Quiz F2016
+117,Networking,TCP Cubic increases window based on elapsed real time rather than per ACK steps. Why adopt a real time increase rule Statement ? Evaluate as True or False .This reduces the throughput bias against long RTT connections compared to Reno.,true,Medium,MIT 6.829 Quiz F2016
 118,Networking,"Primitives of transport service assume asymmetry between the two end points during connection establishment, one end (server) executes LISTEN while the other end (client) executes CONNECT. However, in peer to peer applications such file sharing systems, e.g. BitTorrent, all end points are peers. There is no server or client functionality. How can transport service primitives may be used to build such peer to peer applications?","Since the two end points are peers, a separate application-level mechanism is
 needed that informs the end points at run time about which end will act as
 server and which end will act as client, as well as their addresses. One way to
@@ -1960,205 +1960,205 @@ However, there can be complications when dealing with concurrent transactions. I
 522,Database, Why might a client choose to subscribe only to the basic infrastructure-as-a-service model rather than to the services offered by other cloud service models?,A client may wish to control its own applications and thus may not wish to subscribe to a software-as-a-service model; or the client might further wish to be able to choose and manage its own database system and thus not wish to subscribe to a platform-as-a-service model.,,
 523,Database," Why do cloud-computing services support traditional database systems best by using a virtual machine, instead of running directly on the service provider's actual machine, assuming that data is on external storage?","By using a virtual machine, if a physical machine fails, virtual machines running on that physical machine can be restarted quickly on one or more other physical machines, improving availability. This assumes that data remains accessible, either by storing multiple copies of data, or by storing data in a highly available external storage system.",,
 524,Algo & DS,,,,
-525,Algo & DS,"Given a sorted array of n integers and a target value, implement binary search to find the target’s index (or –1 if not found).",,Easy,https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/lecture-notes/
-526,Algo & DS,Union of two sorted arrays (unique).,,Easy,https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/lecture-notes//
-527,Algo & DS,Topological sort of a DAG,,Easy,https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/lecture-notes
-528,Algo & DS,Describe how Selection Sort works and analyze its time complexity.,,Easy,"Cormen et al., Introduction to Algorithms,"
-529,Algo & DS,What is the time complexity of inserting an element at the end of an array?,,Easy,
-530,Algo & DS,"Given an unsorted array, design an algorithm to find the second largest element.",,Easy,"CLRS, Ch. 9"
-531,Algo & DS,Reverse an array in-place without using extra memory.,,Easy,MIT OCW 6.006
-532,Algo & DS,Determine whether two strings are anagrams of each other.,,Easy,GeeksforGeeks
-533,Algo & DS,Count the number of occurrences of an element in a sorted array.,,Easy,MIT OCW 6.006
-534,Algo & DS,Find the maximum sum of any two consecutive elements in an array.,,Easy,CLRS
-535,Algo & DS,Check if a given number is prime.,,Easy,Algorithm Design Manual
-536,Algo & DS,Compute the sum of digits of an integer using recursion.,,Easy,GeeksforGeeks
-537,Algo & DS,Remove duplicates from an unsorted array.,,Easy,MIT OCW 6.006
-538,Algo & DS,Compute factorial using iteration.,,Easy,CLRS
-539,Algo & DS,Find the smallest element in a rotated sorted array.,,Easy,CP-Algorithms
-540,Algo & DS,Count vowels in a string.,,Easy,Standard String Algorithms
-541,Algo & DS,Convert decimal number to binary.,,Easy,Discrete Math Algorithms
-542,Algo & DS,Check if a number is a palindrome.,,Easy,GeeksforGeeks
-543,Algo & DS,Merge two unsorted arrays into one.,,Easy,MIT OCW
-544,Algo & DS,Determine if a year is a leap year.,,Easy,Gregorian Calendar Rules
-545,Algo & DS,Find the index of the first negative number in an array.,,Easy,CLRS
-546,Algo & DS,Convert a string to uppercase without built-in functions.,,Easy,Cormen Appendix
-547,Algo & DS,Generate Fibonacci sequence up to n terms.,,Easy,MIT OCW
-548,Algo & DS,Count the number of even numbers in an array.,,Easy,Standard Array Algorithms
-549,Algo & DS,Determine if array is sorted in ascending order.,,Easy,CLRS
-550,Algo & DS,Find the index of maximum value in an array.,,Easy,MIT OCW
-551,Algo & DS,Compute power x^n using naive multiplication.,,Easy,Algorithm Design Manual
-552,Algo & DS,Count characters in a string excluding spaces.,,Easy,GeeksforGeeks
-553,Algo & DS,Check whether a number is divisible by 3.,,Easy,Number Theory Basics
-554,Algo & DS,Find common elements between two arrays.,,Easy,CLRS
-555,Algo & DS,Apply dynamic programming to compute the length of the Longest Increasing Subsequence (LIS).,,Medium,"CLRS, Ch. 15"
-556,Algo & DS,Design an algorithm to find the k-th smallest element using QuickSelect.,,Medium,"CLRS, Ch. 9"
-557,Algo & DS,Determine shortest path in an unweighted graph using BFS.,,Medium,MIT OCW 6.006
-558,Algo & DS,"Given a matrix, find the path with maximum sum from top-left to bottom-right moving only right or down.",,Medium,CLRS
-559,Algo & DS,Design an algorithm to detect if a graph is bipartite.,,Medium,"CLRS, Ch. 22"
-560,Algo & DS,Explain how heap sort produces a sorted array.,,Medium,"CLRS, Ch. 6"
-561,Algo & DS,Compute edit distance between two strings.,,Medium,"CLRS, Ch. 15"
-562,Algo & DS,Implement topological sorting using Kahn’s algorithm.,,Medium,MIT OCW
-563,Algo & DS,Determine if a permutation is lexicographically next.,,Medium,CP-Algorithms
-564,Algo & DS,Find cycle in directed graph using DFS.,,Medium,CLRS
-565,Algo & DS,Apply greedy method to schedule activities with maximum count.,,Medium,CLRS
-566,Algo & DS,"Given a sequence, find the longest palindromic subsequence.",,Medium,CP-Algorithms
-567,Algo & DS,Implement Dijkstra algorithm for weighted graph with adjacency list.,,Medium,CLRS
-568,Algo & DS,Solve coin change problem to minimize number of coins.,,Medium,CLRS
-569,Algo & DS,Determine connected components in an undirected graph.,,Medium,MIT OCW
-570,Algo & DS,Analyze time complexity of recursive merge sort.,,Medium,CLRS
-571,Algo & DS,Detect redundant connections in an undirected graph.,,Medium,CP-Algorithms
-572,Algo & DS,Determine order of growth of nested loops.,,Medium,CLRS
-573,Algo & DS,Compute matrix multiplication for two square matrices.,,Medium,CLRS
-574,Algo & DS,Implement DFS traversal on graph.,,Medium,MIT OCW
-575,Algo & DS,"Given an array, find maximum subarray sum using divide-and-conquer.",,Medium,CLRS
-576,Algo & DS,Solve rod cutting problem using dynamic programming.,,Medium,CLRS
-577,Algo & DS,Implement topological sorting using Kahn’s algorithm.,,Medium,MIT OCW
-578,Algo & DS,"Given a sequence of tasks with deadlines and profits, design an algorithm to maximize total profit.",,Medium,"CLRS, Ch. 16"
-579,Algo & DS,Design an algorithm to detect majority element in an array.,,Medium,CLRS
-580,Algo & DS,Find the longest substring without repeating characters.,,Medium,CP-Algorithms
-581,Algo & DS,Compute minimum spanning tree using Prim’s algorithm with adjacency matrix.,,Medium,CLRS
-582,Algo & DS,Determine whether a graph contains a Hamiltonian path.,,Medium,Graph Theory
-583,Algo & DS,Design a greedy algorithm for interval covering.,,Medium,CLRS
-584,Algo & DS,Compute shortest distance between two nodes in weighted DAG.,,Medium,CLRS
-585,Algo & DS,Find minimum difference between any two elements in array.,,Medium,CP-Algorithms
-586,Algo & DS,Calculate number of inversions in array using BIT.,,Medium,CP-Algorithms
-587,Algo & DS,Implement merge k sorted lists.,,Medium,CLRS
-588,Algo & DS,Design an algorithm to compute all biconnected components using DFS low-link values.,,Hard,CLRS Ch. 22
-589,Algo & DS,Develop a DP algorithm for optimal binary search tree with actual reconstruction of tree.,,Hard,CLRS Ch. 15
-590,Algo & DS,Design an algorithm to compute minimum number of edges to add to make a directed graph strongly connected.,,Hard,CP-Algorithms
-591,Algo & DS,Prove that Max-Cut has a polynomial-time 0.878-approximation using semidefinite programming.,,Hard,Goemans & Williamson 1995
-592,Algo & DS,Show that deciding if a Turing machine halts on empty input is undecidable.,,Hard,Sipser – Theory of Computation
-593,Algo & DS,Design an algorithm for minimum-cost maximum-flow in directed graph.,,Hard,CLRS Ch. 29
-594,Algo & DS,Derive the time complexity of recursive Strassen’s algorithm.,,Hard,"CLRS, Ch. 4"
-595,Algo & DS,Design an algorithm for weighted interval scheduling.,,Hard,CLRS
-596,Algo & DS,Prove correctness of Dijkstra using greedy stays optimal.,,Hard,CLRS
-597,Algo & DS,Prove that subset sum is NP-complete.,,Hard,Garey & Johnson
-598,Algo & DS,Explain Hopcroft-Karp algorithm.,,Hard,CLRS
-599,Algo & DS,"Given a string, find the minimum number of cuts to divide it into palindromic substrings.",,Hard,GeeksforGeeks
-600,Algo & DS,Prove that merge sort’s recursion T(n)=2 T(n/2)+Θ(n) solves to Θ(n log n).,,Hard,Introduction to Algorithms CLRS 4ed
-601,Algo & DS,Bellman–Ford + negative-cycle detection.,,Hard,https://cp-algorithms.com/graph/bellman_ford.html
-602,Algo & DS,Prove that any comparison-based sorting algorithm has a lower bound of Ω(n log n).,,Hard,CLRS Ch. 8
-603,Algo & DS,Design a polynomial-time approximation for the Vertex Cover problem.,,Hard,CLRS Ch. 35
-604,Algo & DS,Explain why the Traveling Salesman Problem is NP-complete.,,Hard,Garey & Johnson
-605,Algo & DS,Derive the DP formulation for bitonic TSP.,,Hard,CLRS Ch. 15
-606,Algo & DS,Design a randomized algorithm for selecting median in expected linear time.,,Hard,CLRS Ch. 9
-607,Algo & DS,Explain A* search and its optimality condition.,,Hard,AI: Russell & Norvig
-608,Algo & DS,Construct an algorithm to find strongly connected components.,,Hard,CLRS Ch. 22
-609,Algo & DS,Prove correctness of Huffman Coding’s greedy strategy.,,Hard,CLRS Ch. 16
-610,Algo & DS,Explain how the Ford–Fulkerson method computes maximum flow.,,Hard,CLRS Ch. 26
-611,Algo & DS,Apply Min-Cut Max-Flow theorem to network balancing.,,Hard,CLRS Ch. 26
-612,Algo & DS,Show how dynamic programming solves matrix-chain multiplication.,,Hard,CLRS
-613,Algo & DS,Explain amortized analysis using potential method.,,Hard,CLRS Ch. 17
-614,Algo & DS,Describe algorithm for finding articulation points in graph.,,Hard,CP-Algorithms
-615,Algo & DS,Explain algorithm for detecting bridges in a graph.,,Hard,CP-Algorithms
-616,Algo & DS,Analyze Strassen’s algorithm for matrix multiplication.,,Hard,CLRS
-617,Algo & DS,Prove the Master Theorem formally.,,Hard,CLRS
-618,Algo & DS,Explain prefix-function computation in KMP.,,Hard,CLRS Ch. 32
-619,Algo & DS,Show correctness of greedy interval scheduling.,,Hard,CLRS
-620,Algo & DS,Develop algorithm for longest path in DAG.,,Hard,CLRS
-621,Algo & DS,Formulate DP for minimum edit script with traceback.,,Hard,CLRS
-622,Algo & DS,Prove that Max-Cut has a polynomial-time 0.878-approximation using semidefinite programming.,,Hard,Goemans & Williamson 1995
-623,Algo & DS,Show that deciding if a Turing machine halts on empty input is undecidable.,,Hard,Sipser – Theory of Computation
-624,Algo & DS,Design an algorithm for minimum-cost maximum-flow in directed graph.,,Hard,CLRS Ch. 29
-625,Algo & DS,Give a divide-and-conquer algorithm to find closest pair of points in 2D and analyze correctness.,,Hard,Computational Geometry – de Berg et al.
+525,Algo & DS,"Given a sorted array of n integers and a target value, implement binary search to find the target’s index (or –1 if not found).",Index of target or –1,Easy,https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/lecture-notes/
+526,Algo & DS,Union of two sorted arrays (unique).,Merged sorted array without duplicates,Easy,https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/lecture-notes//
+527,Algo & DS,Topological sort of a DAG,Linear order of vertices (topological order),Easy,https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/lecture-notes
+528,Algo & DS,Describe how Selection Sort works and analyze its time complexity.,"O(n²) time, O(1) space",Easy,"Cormen et al., Introduction to Algorithms,"
+529,Algo & DS,What is the time complexity of inserting an element at the end of an array?,O(n),Easy,
+530,Algo & DS,"Given an unsorted array, design an algorithm to find the second largest element.",The second largest element is the highest value smaller than the maximum.,Easy,"CLRS, Ch. 9"
+531,Algo & DS,Reverse an array in-place without using extra memory.,The array is reversed with O(n) time and O(1) space.,Easy,MIT OCW 6.006
+532,Algo & DS,Determine whether two strings are anagrams of each other.,The strings are anagrams if they contain the same characters with identical counts.,Easy,GeeksforGeeks
+533,Algo & DS,Count the number of occurrences of an element in a sorted array.,Returns the total count of the target element.,Easy,MIT OCW 6.006
+534,Algo & DS,Find the maximum sum of any two consecutive elements in an array.,The highest sum of any adjacent pair is returned.,Easy,CLRS
+535,Algo & DS,Check if a given number is prime.,The number is prime if it has no divisors other than 1 and itself.,Easy,Algorithm Design Manual
+536,Algo & DS,Compute the sum of digits of an integer using recursion.,Sum of all decimal digits of the number.,Easy,GeeksforGeeks
+537,Algo & DS,Remove duplicates from an unsorted array.,The array retains only unique values.,Easy,MIT OCW 6.006
+538,Algo & DS,Compute factorial using iteration.,Returns n! for given integer n.,Easy,CLRS
+539,Algo & DS,Find the smallest element in a rotated sorted array.,The minimum value in the rotated array is identified.,Easy,CP-Algorithms
+540,Algo & DS,Count vowels in a string.,Total number of vowels in the string.,Easy,Standard String Algorithms
+541,Algo & DS,Convert decimal number to binary.,Binary representation of the input number.,Easy,Discrete Math Algorithms
+542,Algo & DS,Check if a number is a palindrome.,True if number reads the same backward.,Easy,GeeksforGeeks
+543,Algo & DS,Merge two unsorted arrays into one.,Combined array of both inputs.,Easy,MIT OCW
+544,Algo & DS,Determine if a year is a leap year.,Leap year if divisible by 4 and not 100 unless divisible by 400.,Easy,Gregorian Calendar Rules
+545,Algo & DS,Find the index of the first negative number in an array.,Returns the index of the first negative number.,Easy,CLRS
+546,Algo & DS,Convert a string to uppercase without built-in functions.,Uppercase version of the input string.,Easy,Cormen Appendix
+547,Algo & DS,Generate Fibonacci sequence up to n terms.,First n Fibonacci numbers.,Easy,MIT OCW
+548,Algo & DS,Count the number of even numbers in an array.,Total count of even elements.,Easy,Standard Array Algorithms
+549,Algo & DS,Determine if array is sorted in ascending order.,True if array is strictly non-decreasing.,Easy,CLRS
+550,Algo & DS,Find the index of maximum value in an array.,Index position of the largest element.,Easy,MIT OCW
+551,Algo & DS,Compute power x^n using naive multiplication.,Result of x raised to power n.,Easy,Algorithm Design Manual
+552,Algo & DS,Count characters in a string excluding spaces.,Total non-space characters.,Easy,GeeksforGeeks
+553,Algo & DS,Check whether a number is divisible by 3.,Boolean result indicating divisibility.,Easy,Number Theory Basics
+554,Algo & DS,Find common elements between two arrays.,List of shared elements.,Easy,CLRS
+555,Algo & DS,Apply dynamic programming to compute the length of the Longest Increasing Subsequence (LIS).,The length of the longest strictly increasing subsequence is returned.,Medium,"CLRS, Ch. 15"
+556,Algo & DS,Design an algorithm to find the k-th smallest element using QuickSelect.,The k-th smallest element is located in expected linear time.,Medium,"CLRS, Ch. 9"
+557,Algo & DS,Determine shortest path in an unweighted graph using BFS.,BFS computes shortest paths measured in number of edges.,Medium,MIT OCW 6.006
+558,Algo & DS,"Given a matrix, find the path with maximum sum from top-left to bottom-right moving only right or down.",The maximum achievable path sum is returned.,Medium,CLRS
+559,Algo & DS,Design an algorithm to detect if a graph is bipartite.,Graph is bipartite if no adjacent nodes share the same color.,Medium,"CLRS, Ch. 22"
+560,Algo & DS,Explain how heap sort produces a sorted array.,The result is a sorted array in ascending order.,Medium,"CLRS, Ch. 6"
+561,Algo & DS,Compute edit distance between two strings.,Returns the minimum number of edits required.,Medium,"CLRS, Ch. 15"
+562,Algo & DS,Implement topological sorting using Kahn’s algorithm.,Linear ordering of vertices respecting dependencies.,Medium,MIT OCW
+563,Algo & DS,Determine if a permutation is lexicographically next.,Generates the next permutation in lexicographic order.,Medium,CP-Algorithms
+564,Algo & DS,Find cycle in directed graph using DFS.,Returns true if a cycle exists.,Medium,CLRS
+565,Algo & DS,Apply greedy method to schedule activities with maximum count.,Returns maximum set of compatible activities.,Medium,CLRS
+566,Algo & DS,"Given a sequence, find the longest palindromic subsequence.",Length of longest palindromic subsequence.,Medium,CP-Algorithms
+567,Algo & DS,Implement Dijkstra algorithm for weighted graph with adjacency list.,Provides shortest path from source to all reachable nodes.,Medium,CLRS
+568,Algo & DS,Solve coin change problem to minimize number of coins.,Returns minimum number of coins to reach target amount.,Medium,CLRS
+569,Algo & DS,Determine connected components in an undirected graph.,Outputs groups of mutually reachable vertices.,Medium,MIT OCW
+570,Algo & DS,Analyze time complexity of recursive merge sort.,Merge sort runs in O(n log n).,Medium,CLRS
+571,Algo & DS,Detect redundant connections in an undirected graph.,Identifies edges forming cycles.,Medium,CP-Algorithms
+572,Algo & DS,Determine order of growth of nested loops.,Overall time complexity derived from loop nesting.,Medium,CLRS
+573,Algo & DS,Compute matrix multiplication for two square matrices.,Produces resulting matrix product.,Medium,CLRS
+574,Algo & DS,Implement DFS traversal on graph.,Visits all reachable nodes from a source.,Medium,MIT OCW
+575,Algo & DS,"Given an array, find maximum subarray sum using divide-and-conquer.",Maximum contiguous subarray sum returned.,Medium,CLRS
+576,Algo & DS,Solve rod cutting problem using dynamic programming.,Returns maximum possible revenue.,Medium,CLRS
+577,Algo & DS,Implement topological sorting using Kahn’s algorithm.,Linear ordering of vertices respecting dependencies.,Medium,MIT OCW
+578,Algo & DS,"Given a sequence of tasks with deadlines and profits, design an algorithm to maximize total profit.",Returns the maximum achievable profit schedule.,Medium,"CLRS, Ch. 16"
+579,Algo & DS,Design an algorithm to detect majority element in an array.,Returns element appearing more than n/2 times if exists.,Medium,CLRS
+580,Algo & DS,Find the longest substring without repeating characters.,Returns length of maximal substring with unique characters.,Medium,CP-Algorithms
+581,Algo & DS,Compute minimum spanning tree using Prim’s algorithm with adjacency matrix.,Returns MST with total minimum edge weight.,Medium,CLRS
+582,Algo & DS,Determine whether a graph contains a Hamiltonian path.,Returns true if path visits all vertices once.,Medium,Graph Theory
+583,Algo & DS,Design a greedy algorithm for interval covering.,Finds smallest number of intervals covering target.,Medium,CLRS
+584,Algo & DS,Compute shortest distance between two nodes in weighted DAG.,Returns shortest path length.,Medium,CLRS
+585,Algo & DS,Find minimum difference between any two elements in array.,Minimum absolute difference.,Medium,CP-Algorithms
+586,Algo & DS,Calculate number of inversions in array using BIT.,Total inversions count in array.,Medium,CP-Algorithms
+587,Algo & DS,Implement merge k sorted lists.,Returns single merged sorted list.,Medium,CLRS
+588,Algo & DS,Design an algorithm to compute all biconnected components using DFS low-link values.,identify articulation separation; store components.All biconnected components in O(V+E).,Hard,CLRS Ch. 22
+589,Algo & DS,Develop a DP algorithm for optimal binary search tree with actual reconstruction of tree.,Optimal BST with O(n³) time.,Hard,CLRS Ch. 15
+590,Algo & DS,Design an algorithm to compute minimum number of edges to add to make a directed graph strongly connected.,Minimum edges = max(#sources#sinks).,Hard,CP-Algorithms
+591,Algo & DS,Prove that Max-Cut has a polynomial-time 0.878-approximation using semidefinite programming.,SDP rounding yields 0.878-approximation.,Hard,Goemans & Williamson 1995
+592,Algo & DS,Show that deciding if a Turing machine halts on empty input is undecidable.,Halting on empty input is undecidable.,Hard,Sipser – Theory of Computation
+593,Algo & DS,Design an algorithm for minimum-cost maximum-flow in directed graph.,Computes min-cost max-flow in polynomial time.,Hard,CLRS Ch. 29
+594,Algo & DS,Derive the time complexity of recursive Strassen’s algorithm.,Time complexity is O(n^2.81).,Hard,"CLRS, Ch. 4"
+595,Algo & DS,Design an algorithm for weighted interval scheduling.,Produces maximum total weight schedule.,Hard,CLRS
+596,Algo & DS,Prove correctness of Dijkstra using greedy stays optimal.,Ensures correctness under non-negative weights.,Hard,CLRS
+597,Algo & DS,Prove that subset sum is NP-complete.,Establishes NP-hardness.,Hard,Garey & Johnson
+598,Algo & DS,Explain Hopcroft-Karp algorithm.,Finds maximum bipartite matching in O(E√V).,Hard,CLRS
+599,Algo & DS,"Given a string, find the minimum number of cuts to divide it into palindromic substrings.",Θ(n log n),Hard,GeeksforGeeks
+600,Algo & DS,Prove that merge sort’s recursion T(n)=2 T(n/2)+Θ(n) solves to Θ(n log n).,Θ(n log n),Hard,Introduction to Algorithms CLRS 4ed
+601,Algo & DS,Bellman–Ford + negative-cycle detection.,Shortest paths / Detect negative cycle,Hard,https://cp-algorithms.com/graph/bellman_ford.html
+602,Algo & DS,Prove that any comparison-based sorting algorithm has a lower bound of Ω(n log n).,No comparison sort can do better than Ω(n log n) in worst case.,Hard,CLRS Ch. 8
+603,Algo & DS,Design a polynomial-time approximation for the Vertex Cover problem.,Produces a 2-approximation of minimum vertex cover.,Hard,CLRS Ch. 35
+604,Algo & DS,Explain why the Traveling Salesman Problem is NP-complete.,TSP is NP-complete due to polynomial-time reduction from HC.,Hard,Garey & Johnson
+605,Algo & DS,Derive the DP formulation for bitonic TSP.,Solves Euclidean TSP in O(n²) time for bitonic tours.,Hard,CLRS Ch. 15
+606,Algo & DS,Design a randomized algorithm for selecting median in expected linear time.,Randomized Select runs in expected O(n).,Hard,CLRS Ch. 9
+607,Algo & DS,Explain A* search and its optimality condition.,A* guarantees optimal path if heuristic never overestimates.,Hard,AI: Russell & Norvig
+608,Algo & DS,Construct an algorithm to find strongly connected components.,SCCs are maximal vertex groups mutually reachable.,Hard,CLRS Ch. 22
+609,Algo & DS,Prove correctness of Huffman Coding’s greedy strategy.,Huffman yields optimal prefix-free code.,Hard,CLRS Ch. 16
+610,Algo & DS,Explain how the Ford–Fulkerson method computes maximum flow.,Computes max flow by saturating augmenting paths.,Hard,CLRS Ch. 26
+611,Algo & DS,Apply Min-Cut Max-Flow theorem to network balancing.,Flow value equals capacity of minimum cut.,Hard,CLRS Ch. 26
+612,Algo & DS,Show how dynamic programming solves matrix-chain multiplication.,Finds optimal parenthesization with minimal scalar ops.,Hard,CLRS
+613,Algo & DS,Explain amortized analysis using potential method.,Shows average operation remains bounded.,Hard,CLRS Ch. 17
+614,Algo & DS,Describe algorithm for finding articulation points in graph.,Identifies vertices whose removal disconnects graph.,Hard,CP-Algorithms
+615,Algo & DS,Explain algorithm for detecting bridges in a graph.,Bridge removal increases connected components.,Hard,CP-Algorithms
+616,Algo & DS,Analyze Strassen’s algorithm for matrix multiplication.,Multiplies matrices in O(n^2.81).,Hard,CLRS
+617,Algo & DS,Prove the Master Theorem formally.,Classifies divide-and-conquer recurrences.,Hard,CLRS
+618,Algo & DS,Explain prefix-function computation in KMP.,Enables linear-time pattern matching.,Hard,CLRS Ch. 32
+619,Algo & DS,Show correctness of greedy interval scheduling.,Guarantees optimal interval selection.,Hard,CLRS
+620,Algo & DS,Develop algorithm for longest path in DAG.,Longest path computed in O(V+E).,Hard,CLRS
+621,Algo & DS,Formulate DP for minimum edit script with traceback.,Provides transformation sequence between strings.,Hard,CLRS
+622,Algo & DS,Prove that Max-Cut has a polynomial-time 0.878-approximation using semidefinite programming.,SDP rounding yields 0.878-approximation.,Hard,Goemans & Williamson 1995
+623,Algo & DS,Show that deciding if a Turing machine halts on empty input is undecidable.,Halting on empty input is undecidable.,Hard,Sipser – Theory of Computation
+624,Algo & DS,Design an algorithm for minimum-cost maximum-flow in directed graph.,Computes min-cost max-flow in polynomial time.,Hard,CLRS Ch. 29
+625,Algo & DS,Give a divide-and-conquer algorithm to find closest pair of points in 2D and analyze correctness.,Runs in O(n log n).,Hard,Computational Geometry – de Berg et al.
 626,Algo & DS,,,,
 627,Algo & DS,,,,
-628,Algo & DS,Stack with push/pop/top,,Easy,https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/lecture-notes
-629,Algo & DS,Binary Search Trees basics (insert/find/min).,,Easy,https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/resources/lecture-5-binary-search-trees-bst-sort/
-630,Algo & DS,Queue with circular array,,Easy,https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/lecture-notes/?
-631,Algo & DS,Describe the difference between an array and a linked list.,,Easy,"CLRS, Ch. 10"
-632,Algo & DS,What is a queue and how does it process elements?,,Easy,MIT OCW 6.006
-633,Algo & DS,Define a binary tree and list its main properties.,,Easy,CLRS
-634,Algo & DS,What is the purpose of a hash table?,,Easy,MIT OCW
-635,Algo & DS,Define a heap and its core property.,,Easy,CLRS
-636,Algo & DS,What distinguishes a max heap from a min heap?,,Easy,CLRS
-637,Algo & DS,Describe concept of pointer in linked structures.,,Easy,GeeksforGeeks
-638,Algo & DS,Explain adjacency matrix in graph representation.,,Easy,CLRS
-639,Algo & DS,What is an adjacency list?,,Easy,MIT OCW
-640,Algo & DS,Describe a circular linked list.,,Easy,CLRS
-641,Algo & DS,What is a priority queue?,,Easy,CLRS
-642,Algo & DS,Explain how a node is inserted at the end of a linked list.,,Easy,MIT OCW
-643,Algo & DS,Define graph vertex degree.,,Easy,GeeksforGeeks
-644,Algo & DS,Differentiate full and complete binary trees.,,Easy,CLRS
-645,Algo & DS,What is a dynamic array and how does it grow?,,Easy,MIT OCW 6.006
-646,Algo & DS,Define a multiset and describe how it differs from a set.,,Easy,CLRS
-647,Algo & DS,What is a sentinel node in linked lists?,,Easy,GeeksforGeeks
-648,Algo & DS,Explain how to find the middle of a singly linked list.,,Easy,MIT OCW
-649,Algo & DS,What is the purpose of the 'parent' pointer in a tree node?,,Easy,CLRS
-650,Algo & DS,How do you compute the height of a binary tree?,,Easy,GeeksforGeeks
-651,Algo & DS,Explain how to check if a binary tree is empty.,,Easy,CLRS
-652,Algo & DS,What is a collision in hashing?,,Easy,CLRS Hashing
-653,Algo & DS,What is the difference between BFS and DFS in trees?,,Easy,MIT OCW
-654,Algo & DS,Describe what a deque is and name two of its operations.,,Easy,MIT OCW
+628,Algo & DS,Stack with push/pop/top,Last-in element operations (LIFO),Easy,https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/lecture-notes
+629,Algo & DS,Binary Search Trees basics (insert/find/min).,Ordered tree; avg O(log n),Easy,https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/resources/lecture-5-binary-search-trees-bst-sort/
+630,Algo & DS,Queue with circular array,FIFO in O(1),Easy,https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/lecture-notes/?
+631,Algo & DS,Describe the difference between an array and a linked list.,A stack stores elements in Last-In-First-Out order and is commonly used for function calls and expression evaluation.,Easy,"CLRS, Ch. 10"
+632,Algo & DS,What is a queue and how does it process elements?,"Arrays offer constant-time indexing, while linked lists allow flexible dynamic insertion.",Easy,MIT OCW 6.006
+633,Algo & DS,Define a binary tree and list its main properties.,A queue follows First-In-First-Out ordering for element processing.,Easy,CLRS
+634,Algo & DS,What is the purpose of a hash table?,A singly linked list stores elements using forward-pointing node references.,Easy,MIT OCW
+635,Algo & DS,Define a heap and its core property.,A hash table enables fast data retrieval using computed hash indices.,Easy,CLRS
+636,Algo & DS,What distinguishes a max heap from a min heap?,A heap maintains a strict ordering property for efficient priority access.,Easy,CLRS
+637,Algo & DS,Describe concept of pointer in linked structures.,Max heap stores largest value at root; min heap stores smallest.,Easy,GeeksforGeeks
+638,Algo & DS,Explain adjacency matrix in graph representation.,A deque supports insertion and removal at both ends.,Easy,CLRS
+639,Algo & DS,What is an adjacency list?,Adjacency matrix represents graph connections via 2D matrix.,Easy,MIT OCW
+640,Algo & DS,Describe a circular linked list.,An adjacency list stores neighbors efficiently for sparse graphs.,Easy,CLRS
+641,Algo & DS,What is a priority queue?,Tree traversal systematically visits all nodes.,Easy,CLRS
+642,Algo & DS,Explain how a node is inserted at the end of a linked list.,A priority queue orders elements by priority value.,Easy,MIT OCW
+643,Algo & DS,Define graph vertex degree.,Adds new element while preserving list order.,Easy,GeeksforGeeks
+644,Algo & DS,Differentiate full and complete binary trees.,Height measures the longest path complexity of tree.,Easy,CLRS
+645,Algo & DS,What is a dynamic array and how does it grow?,Dynamic array resizes by doubling capacity when needed.,Easy,MIT OCW 6.006
+646,Algo & DS,Define a multiset and describe how it differs from a set.,Multiset allows repeated values; set does not.,Easy,CLRS
+647,Algo & DS,What is a sentinel node in linked lists?,A sentinel is a dummy node used to eliminate special-case logic.,Easy,GeeksforGeeks
+648,Algo & DS,Explain how to find the middle of a singly linked list.,slow moves 1 step.Middle is where slow pointer stops when fast pointer reaches end.,Easy,MIT OCW
+649,Algo & DS,What is the purpose of the 'parent' pointer in a tree node?,Parent pointer enables constant-time upward traversal.,Easy,CLRS
+650,Algo & DS,How do you compute the height of a binary tree?,right subtree height); base case -1 or 0 depending on definition.Tree height is the longest path from root to any leaf.,Easy,GeeksforGeeks
+651,Algo & DS,Explain how to check if a binary tree is empty.,Tree is empty if root == NULL.,Easy,CLRS
+652,Algo & DS,What is a collision in hashing?,Collision occurs when multiple keys hash to same location.,Easy,CLRS Hashing
+653,Algo & DS,What is the difference between BFS and DFS in trees?,BFS explores level by level; DFS explores deep before wide.,Easy,MIT OCW
+654,Algo & DS,Describe what a deque is and name two of its operations.,"Deque supports push_front,pop_back.",Easy,MIT OCW
 655,Algo & DS,,,,
 656,Algo & DS,,,,
 657,Algo & DS,,,,
-658,Algo & DS,Explain how to find the lowest common ancestor (LCA) in a binary tree using parent pointers.,,Medium,CLRS
-659,Algo & DS,Implement a min-stack supporting getMin() in O(1).,,Medium,CLRS
-660,Algo & DS,Explain lazy deletion in hash tables.,,Medium,CLRS Hashing
-661,Algo & DS,Describe how to merge two binary max heaps.,,Medium,CP-Algorithms
-662,Algo & DS,Implement level-order traversal using only a stack.,,Medium,MIT OCW
-663,Algo & DS,Explain how to count leaf nodes in a binary tree.,,Medium,CLRS
-664,Algo & DS,Design algorithm to convert a BST into a sorted linked list.,,Medium,CLRS
-665,Algo & DS,Describe how to validate if a binary tree is a BST.,,Medium,MIT OCW
-666,Algo & DS,Explain how to compress paths in a trie.,,Medium,GeeksforGeeks
-667,Algo & DS,Explain difference between stable and unstable sorting using examples.,,Medium,CLRS
-668,Algo & DS,Explain how an LRU cache works using a hashmap + doubly linked list.,,Medium,CLRS
-669,Algo & DS,Implement a prefix sum array and describe its use.,,Medium,CLRS
-670,Algo & DS,Explain how a doubly linked list allows bidirectional traversal.,,Medium,"CLRS, Ch. 10"
-671,Algo & DS,Describe insertion operation in a Binary Search Tree.,,Medium,MIT OCW 6.006
-672,Algo & DS,How does rehashing improve hash table performance?,,Medium,CLRS
-673,Algo & DS,Implement level-order traversal of a binary tree.,,Medium,CLRS
-674,Algo & DS,Explain how a circular queue avoids wasted space.,,Medium,MIT OCW
-675,Algo & DS,Describe how heapify operation restores heap property.,,Medium,CLRS
-676,Algo & DS,Compare chaining and open addressing in hash tables.,,Medium,CLRS
-677,Algo & DS,How does Union-Find with path compression work?,,Medium,CLRS
-678,Algo & DS,Describe stack implementation using linked list.,,Medium,MIT OCW
-679,Algo & DS,Describe delete operation in a Binary Search Tree.,,Medium,CLRS
-680,Algo & DS,Implement priority queue using binary heap.,,Medium,CLRS
-681,Algo & DS,Explain disjoint set structure for connected components.,,Medium,CLRS
-682,Algo & DS,Implement inorder traversal iteratively.,,Medium,MIT OCW
-683,Algo & DS,Explain time complexity of search in AVL tree.,,Medium,CLRS
-684,Algo & DS,Differentiate between internal and external nodes in tree.,,Medium,CLRS
-685,Algo & DS,How does open addressing handle collisions?,,Medium,MIT OCW
-686,Algo & DS,Describe the structure of a complete binary tree.,,Medium,CLRS
-687,Algo & DS,Explain implicit data structures in arrays.,,Medium,CLRS
-688,Algo & DS,Implement preorder traversal of a tree iteratively.,,Medium,MIT OCW
-689,Algo & DS,Explain amortized cost of dynamic array resizing.,,Medium,CLRS
-690,Algo & DS,Explain how to flatten a binary tree into a linked list following preorder.,,Medium,GeeksforGeeks
-691,Algo & DS,Implement deletion from a min-heap.,,Medium,CLRS
-692,Algo & DS,How do you detect if a binary tree is height-balanced?,,Medium,CLRS
-693,Algo & DS,Explain how to find k-th smallest element in a BST.,,Medium,MIT OCW
-694,Algo & DS,Design a method to check if two binary trees are identical.,,Medium,CLRS
-695,Algo & DS,Describe memory layout differences between array-based heap and pointer-based heap.,,Medium,Algorithm Design Manual
-696,Algo & DS,Explain how to find diameter of a binary tree.,,Medium,CLRS
-697,Algo & DS,Describe method to clone a graph with cycles.,,Medium,CLRS
-698,Algo & DS,Explain how to evaluate a postfix expression using a stack.,,Medium,MIT OCW
-699,Algo & DS,Design a function to delete a node in a singly linked list when only pointer to node is given.,,Medium,GeeksforGeeks
-700,Algo & DS,Explain how to compute width of a binary tree.,,Medium,CLRS
-701,Algo & DS,Describe algorithm to find intersection point of two linked lists.,,Medium,CLRS
-702,Algo & DS,Explain how to perform zigzag level-order traversal in a tree.,,Medium,CP-Algorithms
+658,Algo & DS,Explain how to find the lowest common ancestor (LCA) in a binary tree using parent pointers.,The first marked ancestor encountered is the LCA.,Medium,CLRS
+659,Algo & DS,Implement a min-stack supporting getMin() in O(1).,Stack returns minimum in O(1).,Medium,CLRS
+660,Algo & DS,Explain lazy deletion in hash tables.,Lazy deletion avoids probe breakage.,Medium,CLRS Hashing
+661,Algo & DS,Describe how to merge two binary max heaps.,Merged heap maintains max-heap structure.,Medium,CP-Algorithms
+662,Algo & DS,Implement level-order traversal using only a stack.,Level-order achieved via stack operations.,Medium,MIT OCW
+663,Algo & DS,Explain how to count leaf nodes in a binary tree.,Total number of leaf nodes computed.,Medium,CLRS
+664,Algo & DS,Design algorithm to convert a BST into a sorted linked list.,Output list sorted in ascending order.,Medium,CLRS
+665,Algo & DS,Describe how to validate if a binary tree is a BST.,Tree is BST if values increase strictly.,Medium,MIT OCW
+666,Algo & DS,Explain how to compress paths in a trie.,Compressed trie reduces space usage.,Medium,GeeksforGeeks
+667,Algo & DS,Explain difference between stable and unstable sorting using examples.,Stability affects how multi-key sorting behaves.,Medium,CLRS
+668,Algo & DS,Explain how an LRU cache works using a hashmap + doubly linked list.,LRU supports O(1) get and put operations.,Medium,CLRS
+669,Algo & DS,Implement a prefix sum array and describe its use.,Allows constant-time range sum queries.,Medium,CLRS
+670,Algo & DS,Explain how a doubly linked list allows bidirectional traversal.,A doubly linked list supports efficient traversal in both directions.,Medium,"CLRS, Ch. 10"
+671,Algo & DS,Describe insertion operation in a Binary Search Tree.,BST insertion maintains ordering property of the tree.,Medium,MIT OCW 6.006
+672,Algo & DS,How does rehashing improve hash table performance?,Rehashing redistributes elements to reduce collisions.,Medium,CLRS
+673,Algo & DS,Implement level-order traversal of a binary tree.,Visits nodes breadth-wise from top to bottom.,Medium,CLRS
+674,Algo & DS,Explain how a circular queue avoids wasted space.,Circular queue fully utilizes fixed array space.,Medium,MIT OCW
+675,Algo & DS,Describe how heapify operation restores heap property.,Heapify ensures valid heap structure.,Medium,CLRS
+676,Algo & DS,Compare chaining and open addressing in hash tables.,Both methods resolve collisions differently.,Medium,CLRS
+677,Algo & DS,How does Union-Find with path compression work?,Dramatically improves efficiency to almost constant time.,Medium,CLRS
+678,Algo & DS,Describe stack implementation using linked list.,Stack operations remain O(1).,Medium,MIT OCW
+679,Algo & DS,Describe delete operation in a Binary Search Tree.,BST maintains ordering after deletion.,Medium,CLRS
+680,Algo & DS,Implement priority queue using binary heap.,Priority queue supports efficient max/min retrieval.,Medium,CLRS
+681,Algo & DS,Explain disjoint set structure for connected components.,Disjoint sets track partitioned groups efficiently.,Medium,CLRS
+682,Algo & DS,Implement inorder traversal iteratively.,Produces sorted output for BST.,Medium,MIT OCW
+683,Algo & DS,Explain time complexity of search in AVL tree.,Search is O(log n).,Medium,CLRS
+684,Algo & DS,Differentiate between internal and external nodes in tree.,Defined based on child presence.,Medium,CLRS
+685,Algo & DS,How does open addressing handle collisions?,Probing places collided items into nearest empty slot.,Medium,MIT OCW
+686,Algo & DS,Describe the structure of a complete binary tree.,Guarantees minimal tree height.,Medium,CLRS
+687,Algo & DS,Explain implicit data structures in arrays.,Implicit trees leverage array positions.,Medium,CLRS
+688,Algo & DS,Implement preorder traversal of a tree iteratively.,Ensures root-first node processing.,Medium,MIT OCW
+689,Algo & DS,Explain amortized cost of dynamic array resizing.,Average insertion remains constant time.,Medium,CLRS
+690,Algo & DS,Explain how to flatten a binary tree into a linked list following preorder.,Produces linearized preorder linked list.,Medium,GeeksforGeeks
+691,Algo & DS,Implement deletion from a min-heap.,Min-heap property maintained post-deletion.,Medium,CLRS
+692,Algo & DS,How do you detect if a binary tree is height-balanced?,Tree is height-balanced if all nodes satisfy height condition.,Medium,CLRS
+693,Algo & DS,Explain how to find k-th smallest element in a BST.,k-th smallest returned during traversal.,Medium,MIT OCW
+694,Algo & DS,Design a method to check if two binary trees are identical.,Trees identical if all nodes match.,Medium,CLRS
+695,Algo & DS,Describe memory layout differences between array-based heap and pointer-based heap.,Array heaps have better locality; both maintain heap property.,Medium,Algorithm Design Manual
+696,Algo & DS,Explain how to find diameter of a binary tree.,Diameter = longest path between two leaves.,Medium,CLRS
+697,Algo & DS,Describe method to clone a graph with cycles.,Graph clone maintains full connectivity including cycles.,Medium,CLRS
+698,Algo & DS,Explain how to evaluate a postfix expression using a stack.,Final value obtained after stack reduces to one element.,Medium,MIT OCW
+699,Algo & DS,Design a function to delete a node in a singly linked list when only pointer to node is given.,Node removed without head pointer.,Medium,GeeksforGeeks
+700,Algo & DS,Explain how to compute width of a binary tree.,Width = max number of nodes in any level.,Medium,CLRS
+701,Algo & DS,Describe algorithm to find intersection point of two linked lists.,First matching node is intersection.,Medium,CLRS
+702,Algo & DS,Explain how to perform zigzag level-order traversal in a tree.,Outputs alternating left–right and right–left levels.,Medium,CP-Algorithms
 703,Algo & DS,,,,
-704,Algo & DS,Prove that perfect hashing achieves O(1) worst-case lookups using two-level hashing.,,Hard,Randomized Algorithms – Motwani & Raghavan
-705,Algo & DS,Design a persistent segment tree that supports versioned range queries.,,Hard,CP-Algorithms (Persistent Trees)
-706,Algo & DS,Design a dynamic 2D segment tree for rectangle sum queries.,,Hard,Advanced Data Structures – MIT 6.851
-707,Algo & DS,Implement a red-black tree insertion and show how rotations restore balance.,,Hard,https://web.stanford.edu/class/archive/cs/cs166/cs166.1206/lectures/06/Small06.pdf
-708,Algo & DS,What is the worst-case complexity of splay tree access?,,Hard,https://epubs.siam.org/doi/10.1137/0216022
-709,Algo & DS,What is the expected insertion cost in a cuckoo hash table?,,Hard,Introduction to Algorithms CLRS 4ed
-710,Algo & DS,Prove that insertion in a red-black tree preserves logarithmic height.,,Hard,"CLRS, Ch. 13"
-711,Algo & DS,Design the deletion algorithm for a red-black tree and explain how violations are fixed.,,Hard,"CLRS, Ch. 13"
-712,Algo & DS,Explain how skip list maintains probabilistic balance.,,Hard,CLRS
-713,Algo & DS,Implement a double hashing collision resolution scheme.,,Hard,CLRS
-714,Algo & DS,Demonstrate how linear probing causes primary clustering.,,Hard,MIT OCW
-715,Algo & DS,Analyze complexity of cuckoo hashing insertion.,,Hard,CLRS
-716,Algo & DS,Explain how segment tree supports lazy propagation.,,Hard,CP-Algorithms
-717,Algo & DS,Implement Fenwick tree and analyze update logic.,,Hard,CP-Algorithms
-718,Algo & DS,Explain structure of van Emde Boas tree.,,Hard,CLRS
-719,Algo & DS,Implement a B+-Tree node split algorithm and prove correctness.,,Hard,Database System Concepts – Silberschatz
-720,Algo & DS,Prove that sparse table RMQ queries are O(1) after O(n log n) preprocessing.,,Hard,Competitive Programming Handbook
-721,Algo & DS,Design a Union-Find supporting rollback operations.,,Hard,CP-Algorithms – DSU Rollback
-722,Algo & DS,Explain how a Link-Cut Tree supports path queries on dynamic trees.,,Hard,Sleator & Tarjan Dynamic Trees
-723,Algo & DS,Construct a compressed trie (radix tree) and prove its lookup time bound.,,Hard,Algorithms on Strings – Gusfield
+704,Algo & DS,Prove that perfect hashing achieves O(1) worst-case lookups using two-level hashing.,Worst-case O(1) lookup with O(n) expected space.,Hard,Randomized Algorithms – Motwani & Raghavan
+705,Algo & DS,Design a persistent segment tree that supports versioned range queries.,Updates cost O(log n) and queries O(log n) across versions.,Hard,CP-Algorithms (Persistent Trees)
+706,Algo & DS,Design a dynamic 2D segment tree for rectangle sum queries.,Rectangle updates/queries in O(log² n).,Hard,Advanced Data Structures – MIT 6.851
+707,Algo & DS,Implement a red-black tree insertion and show how rotations restore balance.,Balanced BST with O(log n),Hard,https://web.stanford.edu/class/archive/cs/cs166/cs166.1206/lectures/06/Small06.pdf
+708,Algo & DS,What is the worst-case complexity of splay tree access?,O(n),Hard,https://epubs.siam.org/doi/10.1137/0216022
+709,Algo & DS,What is the expected insertion cost in a cuckoo hash table?,"O(1) average, O(log n) worst",Hard,Introduction to Algorithms CLRS 4ed
+710,Algo & DS,Prove that insertion in a red-black tree preserves logarithmic height.,"Red-black trees maintain height O(log n), ensuring balanced structure.",Hard,"CLRS, Ch. 13"
+711,Algo & DS,Design the deletion algorithm for a red-black tree and explain how violations are fixed.,Deletions preserve all red-black tree constraints.,Hard,"CLRS, Ch. 13"
+712,Algo & DS,Explain how skip list maintains probabilistic balance.,Skip lists offer expected O(log n) search complexity.,Hard,CLRS
+713,Algo & DS,Implement a double hashing collision resolution scheme.,Reduces clustering during collisions.,Hard,CLRS
+714,Algo & DS,Demonstrate how linear probing causes primary clustering.,Primary clustering degrades performance significantly.,Hard,MIT OCW
+715,Algo & DS,Analyze complexity of cuckoo hashing insertion.,Insert operation average remains O(1).,Hard,CLRS
+716,Algo & DS,Explain how segment tree supports lazy propagation.,Reduces update complexity effectively.,Hard,CP-Algorithms
+717,Algo & DS,Implement Fenwick tree and analyze update logic.,Fenwick trees support prefix sums in O(log n).,Hard,CP-Algorithms
+718,Algo & DS,Explain structure of van Emde Boas tree.,Supports O(log log U) operations.,Hard,CLRS
+719,Algo & DS,Implement a B+-Tree node split algorithm and prove correctness.,Maintains B+-tree invariants with O(log n) operations.,Hard,Database System Concepts – Silberschatz
+720,Algo & DS,Prove that sparse table RMQ queries are O(1) after O(n log n) preprocessing.,RMQ performed in O(1) using two precomputed interval minima.,Hard,Competitive Programming Handbook
+721,Algo & DS,Design a Union-Find supporting rollback operations.,Union-Find rollback supports backtracking in O(log n) or O(α(n)).,Hard,CP-Algorithms – DSU Rollback
+722,Algo & DS,Explain how a Link-Cut Tree supports path queries on dynamic trees.,Supports dynamic tree operations in O(log n) amortized.,Hard,Sleator & Tarjan Dynamic Trees
+723,Algo & DS,Construct a compressed trie (radix tree) and prove its lookup time bound.,Lookup runs in O(k) where k is key length.,Hard,Algorithms on Strings – Gusfield
 724,SWE,"Consider the following problem that we call YHC. (As a side note, it's related to the problem of choosing
 an item at random with a likelihood proportional to its frequency.) Given:
 1. a list L = [(i1, c1), . . . ,(in, cn)] of n > 0 pairs, where each i is an item and each c is that item's
