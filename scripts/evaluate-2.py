@@ -30,25 +30,25 @@ logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler(LOG_PATH),
+        logging.FileHandler(LOG_PATH, mode='w'),  # Overwrite log file each run
         logging.StreamHandler()
     ]
 )
 logger = logging.getLogger(__name__)
 MODEL_CONFIGS = {
-    "llama3-8b": "meta-llama/Meta-Llama-3-8B",
-    "mistral-7b": "mistralai/Mistral-7B-v0.1",
+    # "llama3-8b": "meta-llama/Meta-Llama-3-8B",
+    # "mistral-7b": "mistralai/Mistral-7B-v0.1",
     "aya-expanse-8b": "CohereLabs/aya-expanse-8b",
     "qwen2.5-7b": "Qwen/Qwen2.5-7B-Instruct"
 }
 
 JUDGE_MODELS = {
-    "gpt-oss-judge": "openai/gpt-oss-120b"
+    "qwen-judge": "Qwen/Qwen2.5-72B-Instruct"
 }
 
 # General resource optimization settings
 TORCH_DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
-BATCH_SIZE = 32  # Safe with your hardware - can go up to 32 if needed
+BATCH_SIZE = 8  # Safe with your hardware - can go up to 32 if needed
 torch.set_float32_matmul_precision('high')
 
 def load_model(model_id, device="cuda", quantization_bits=8):
@@ -69,7 +69,16 @@ def load_model(model_id, device="cuda", quantization_bits=8):
     )
     # Use quantization for memory efficiency
     from transformers import BitsAndBytesConfig
-    if quantization_bits == 2:
+    # Special case: GPT-OSS-120B is already quantized (mxfp4), do not pass quantization config
+    if "gpt-oss-120b" in str(model_id).lower():
+        model = AutoModelForCausalLM.from_pretrained(
+            model_id,
+            device_map="auto",
+            cache_dir=cache_dir,
+            token=HF_TOKEN,
+            trust_remote_code=trust_remote_code
+        )
+    elif quantization_bits == 2:
         quantization_config = BitsAndBytesConfig(
             load_in_4bit=True,
             bnb_4bit_compute_dtype=torch.float16,
@@ -261,8 +270,8 @@ def main():
     logger.info("Loading models...")
     # Load evaluation models WITH 4-bit quantization for speed and memory savings
     models = {name: load_model(mid, TORCH_DEVICE, quantization_bits=4) for name, mid in MODEL_CONFIGS.items()}
-    # Load judge model WITH 2-bit quantization to save memory (it's 120B params)
-    judge_models = {name: load_model(path, TORCH_DEVICE, quantization_bits=2) for name, path in JUDGE_MODELS.items()}
+    # Load judge model WITH 4-bit quantization (Qwen2.5-72B-Instruct)
+    judge_models = {name: load_model(path, TORCH_DEVICE, quantization_bits=4) for name, path in JUDGE_MODELS.items()}
     logger.info(f"Loaded {len(models)} evaluation model(s) and {len(judge_models)} judge model(s)")
 
     if args.test:
