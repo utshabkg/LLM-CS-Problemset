@@ -1,0 +1,6 @@
+Model,Average_Score,Judge_Model
+aya-expanse-8b(4bit),0.7177934782608695,Qwen2.5-72B
+Qwen2.5-7B-Instruct(4bit),0.8276630434782607,Qwen2.5-72B
+Meta-Llama-3-8B(4bit),0.5275543478260869,Qwen2.5-72B
+Mistral-7B-v0.1(4bit),0.44086956521739135,Qwen2.5-72B
+deepseek-llm-7b-chat(4bit),0.4481236559139785,Qwen2.5-7B
