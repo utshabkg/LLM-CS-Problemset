@@ -63,6 +63,10 @@ def load_results():
     print(f"\nMerged dataset: {len(merged_df)} rows")
     print(f"Total columns: {len(merged_df.columns)}")
     print(f"Columns: {merged_df.columns.tolist()}")
+    
+    # Standardize Difficulty column (capitalize first letter)
+    merged_df['Difficulty'] = merged_df['Difficulty'].str.capitalize()
+    
     return merged_df
 
 def extract_model_scores(df):
