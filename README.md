@@ -18,13 +18,15 @@ This pipeline evaluates multiple LLMs on a curated dataset of computer science q
 
 **Current Status:**
 - ✅ Dataset preprocessing with domain mapping
-- ✅ Multi-model evaluation support
+- ✅ Multi-model evaluation support (Llama-3-8B, Mistral-7B-v0.1, Aya-Expanse-8B, Qwen2.5-7B-Instruct, DeepSeek-7B)
 - ✅ 4-bit quantization for memory efficiency
 - ✅ Automatic checkpointing every 100 queries
 - ✅ Append mode for incremental model evaluation
+- ✅ Multi-file result merging and analysis (supports results from multiple runs)
+- ✅ CSV-only analysis output (no plots by default)
 - 🔄 **Dataset**: 930 questions across 5 domains
-- 🔄 **Evaluation Models**: Llama-3-8B, Mistral-7B-v0.1
-- 🔄 **Judge Model**: Qwen2.5-72B-Instruct
+- 🔄 **Evaluation Models**: Llama-3-8B, Mistral-7B-v0.1, Aya-Expanse-8B, Qwen2.5-7B-Instruct, DeepSeek-7B
+- 🔄 **Judge Model**: Qwen2.5-72B-Instruct (default), Qwen2.5-7B-Instruct (for DeepSeek run)
 
 ## 💻 System Requirements
 
@@ -168,11 +170,14 @@ This will add new model columns without re-evaluating existing models.
 
 ### Current Models
 
-| Model | Parameters | Quantization | VRAM Usage | Purpose |
-|-------|-----------|--------------|------------|---------|
-| Meta-Llama-3-8B | 8B | 4-bit | ~5GB | Evaluation |
-| Mistral-7B-v0.1 | 7B | 4-bit | ~4GB | Evaluation |
-| Qwen2.5-72B-Instruct | 72B | 4-bit | ~40GB | Judge |
+| Model                        | Parameters | Quantization | VRAM Usage | Purpose     |
+|------------------------------|------------|--------------|------------|-------------|
+| Meta-Llama-3-8B              | 8B         | 4-bit        | ~5GB       | Evaluation  |
+| Mistral-7B-v0.1              | 7B         | 4-bit        | ~4GB       | Evaluation  |
+| aya-expanse-8b               | 8B         | 4-bit        | ~5GB       | Evaluation  |
+| Qwen2.5-7B-Instruct          | 7B         | 4-bit        | ~4GB       | Evaluation/Judge |
+| DeepSeek-LLM-7B-Chat         | 7B         | 4-bit        | ~4GB       | Evaluation  |
+| Qwen2.5-72B-Instruct         | 72B        | 4-bit        | ~40GB      | Judge       |
 
 ### Quantization Options
 
@@ -210,7 +215,7 @@ max_new_tokens=256  # For judge model
 
 ## 📈 Output Format
 
-### Results: `evaluation/results.csv`
+### Results: `evaluation/results.csv` and multi-run files
 
 | Column | Description |
 |--------|-------------|
@@ -219,17 +224,22 @@ max_new_tokens=256  # For judge model
 | Difficulty | Question difficulty level |
 | Question | Question text |
 | Reference_Answer | Ground truth answer |
-| Meta-Llama-3-8B(4bit)_Response | Llama-3 model response |
-| Meta-Llama-3-8B(4bit)_Score | Llama-3 score (0-1) |
-| Mistral-7B-v0.1(4bit)_Response | Mistral model response |
-| Mistral-7B-v0.1(4bit)_Score | Mistral score (0-1) |
+| {ModelName}(4bit)_Response | Model's generated answer |
+| {ModelName}(4bit)_Score | Judge's score (0-1) |
 | ... | Additional models as columns |
 
-**Each model evaluation adds two columns:**
-1. `{ModelName}(4bit)_Response`: The model's generated answer
-2. `{ModelName}(4bit)_Score`: Judge's score (0.0 to 1.0)
+**Multi-run support:**
+- Results from different model/judge combinations are saved in separate files (e.g., `results_llama8B+mistral7B_qwen72B_judge.csv`, `results_DeepSeek7B_Qwen7B_judge.csv`, `results_ayaExpanse8B+qwen7B_Qwen72B_judge.csv`).
+- The analysis script merges all result files for comprehensive comparison.
+- Score columns with judge-specific suffixes (e.g., `_Score_qwen2.5_7b`) are now supported.
 
-This format allows easy comparison across models for each question.
+**Analysis Output:**
+- All analysis is saved as CSV files in the `analysis/` folder:
+    - `difficulty_vs_score.csv`
+    - `model_size_vs_score.csv`
+    - `domain_vs_score.csv`
+    - `summary_statistics.csv`
+    - `human_evaluation_template.csv`
 
 ### Checkpoint Files
 `evaluation/results_checkpoint_{model}_{count}.csv` - Saved every 100 queries to prevent data loss.
